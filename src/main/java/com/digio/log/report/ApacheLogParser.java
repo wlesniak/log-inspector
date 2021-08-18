@@ -1,6 +1,9 @@
 package com.digio.log.report;
 
-import org.apache.log4j.Logger;
+
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
 import java.util.regex.Matcher;
@@ -9,7 +12,7 @@ import java.util.regex.Pattern;
 public class ApacheLogParser {
 
     private static final String regex = "^(\\S+) (\\S+) (\\S+) \\[([\\w:/]+\\s[+\\-]\\d{4})] \"(\\S+)\\s?(\\S+)?\\s?(\\S+)?\" (\\d{3}|-) (\\d+|-)\\s?\"?([^\"]*)\"?\\s?\"?([^\"]*)?\"?$";
-    private final Logger logger = Logger.getLogger(ApacheLogParser.class);
+    private final Logger logger = LogManager.getLogger(ApacheLogParser.class);
 
     Optional<ApacheLogLine> parse(String line) {
         Pattern p = Pattern.compile(regex);

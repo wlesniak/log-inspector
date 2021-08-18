@@ -1,10 +1,10 @@
 package com.digio.log.report;
 
 import com.digio.log.report.aggregator.*;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
@@ -14,7 +14,7 @@ public class ApacheLogReport {
     private final ApacheLogParser logParser;
     private final Aggregator reportAggregator;
     private final String logFilePath;
-    private final Logger logger = Logger.getLogger(ApacheLogReport.class);
+    private final Logger logger = LogManager.getLogger(ApacheLogReport.class);
 
     public ApacheLogReport(String logFilePath) {
         this.logFilePath=logFilePath;
